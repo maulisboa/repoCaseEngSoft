@@ -2,14 +2,14 @@
 let caseEngSofts = null;
 function getCount(data) {
     const el = $("#counter");
-    let name = "to-do";
+    let name = "item";
     if (data) {
         if (data > 1) {
-            name = "to-dos";
+            name = "itens";
         }
         el.text(data + " " + name);
     } else {
-        el.text("No " + name);
+        el.text("Nenhum " + name);
     }
 }
 
@@ -43,14 +43,14 @@ function getData() {
                     .append($("<td></td>").text(item.name))
                     .append(
                         $("<td></td>").append(
-                            $("<button>Edit</button>").on("click", function () {
+                            $("<button>Alterar</button>").on("click", function () {
                                 editItem(item.id);
                             })
                         )
                     )
                     .append(
                         $("<td></td>").append(
-                            $("<button>Delete</button>").on("click", function () {
+                            $("<button>Excluir</button>").on("click", function () {
                                 deleteItem(item.id);
                             })
                         )

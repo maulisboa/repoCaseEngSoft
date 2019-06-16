@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>To-do CRUD</title>
+    <title>Teste - Engenheiro de Software</title>
     <style>
         input[type='submit'], button, [aria-label] {
             cursor: pointer;
@@ -30,21 +30,21 @@
     </style>
 </head>
 <body>
-    <h1>To-do CRUD</h1>
-    <h3>Add</h3>
+    <h1>Teste - Engenheiro de Software</h1>
+    <h3>Adicionar</h3>
     <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
-        <input type="text" id="add-name" placeholder="New to-do">
-        <input type="submit" value="Add">
+        <input type="text" id="add-name" placeholder="Novo item">
+        <input type="submit" value="Incluir">
     </form>
 
     <div id="spoiler">
-        <h3>Edit</h3>
+        <h3>Alterar</h3>
         <form class="my-form">
             <input type="hidden" id="edit-id">
             <input type="checkbox" id="edit-isComplete">
             <input type="text" id="edit-name">
-            <input type="submit" value="Save">
-            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+            <input type="submit" value="Salvar">
+            <a onclick="closeInput()" aria-label="Fechar">&#10006;</a>
         </form>
     </div>
 
