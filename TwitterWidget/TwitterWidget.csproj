@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <Description>A Twitter widget to be used within CloudScribe</Description>
+    <VersionPrefix>1.0</VersionPrefix>
+    <Authors>Mauricio Lisboa</Authors>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <PackageProjectUrl>https://github.com/maulisboa/repoCaseEngSoft</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/maulisboa/repoCaseEngSoft.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>

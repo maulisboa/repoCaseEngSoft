@@ -1,10 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <UserSecretsId>19dc2f84-2a7c-4f27-a837-b0a699b93ec6</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <Authors>Mauricio Lisboa</Authors>
+    <Description>Case - Teste Engenharia de Software</Description>
+    <RepositoryUrl>https://github.com/maulisboa/repoCaseEngSoft</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/maulisboa/repoCaseEngSoft</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>

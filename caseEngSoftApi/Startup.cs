@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using caseEngSoftApi.Models;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace caseEngSoftApi
 {
@@ -29,7 +31,11 @@ namespace caseEngSoftApi
         {
             services.AddDbContext<caseEngSoftContext>(opt =>
     opt.UseInMemoryDatabase("caseEngSoftList"));
+
+            services.AddTwitterWidget(Configuration.GetSection("TwitterOptions"));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
