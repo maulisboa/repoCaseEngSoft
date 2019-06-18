@@ -1,5 +1,5 @@
-﻿const uri = "api/caseEngSoft";
-let caseEngSofts = null;
+﻿const uri = "api/hashtag";
+let hashtags = null;
 function getCount(data) {
     const el = $("#counter");
     let name = "item";
@@ -23,7 +23,7 @@ function getData() {
         url: uri,
         cache: false,
         success: function (data) {
-            const tBody = $("#caseEngSofts");
+            const tBody = $("#hashtags");
 
             $(tBody).empty();
 
@@ -31,27 +31,19 @@ function getData() {
 
             $.each(data, function (key, item) {
                 const tr = $("<tr></tr>")
-                    .append(
-                        $("<td></td>").append(
-                            $("<input/>", {
-                                type: "checkbox",
-                                disabled: true,
-                                checked: item.isComplete
-                            })
-                        )
-                    )
-                    .append($("<td></td>").text(item.name))
+                    .append($("<td></td>").text(item.id_hashtag))
+                    .append($("<td></td>").text(item.hashtag_name))
                     .append(
                         $("<td></td>").append(
                             $("<button>Alterar</button>").on("click", function () {
-                                editItem(item.id);
+                                editItem(item.id_hashtag);
                             })
                         )
                     )
                     .append(
                         $("<td></td>").append(
                             $("<button>Excluir</button>").on("click", function () {
-                                deleteItem(item.id);
+                                deleteItem(item.id_hashtag);
                             })
                         )
                     );
@@ -59,15 +51,14 @@ function getData() {
                 tr.appendTo(tBody);
             });
 
-            caseEngSofts = data;
+            hashtags = data;
         }
     });
 }
 
 function addItem() {
     const item = {
-        name: $("#add-name").val(),
-        isComplete: false
+        hashtag_name: $("#add-name").val()
     };
 
     $.ajax({
@@ -97,21 +88,22 @@ function deleteItem(id) {
 }
 
 function editItem(id) {
-    $.each(caseEngSofts, function (key, item) {
-        if (item.id === id) {
-            $("#edit-name").val(item.name);
-            $("#edit-id").val(item.id);
-            $("#edit-isComplete")[0].checked = item.isComplete;
+    $.each(hashtags, function (key, item) {
+        if (item.id_hashtag === id) {
+            $("#edit-name").val(item.hashtag_name);
+            $("#edit-id").val(item.id_hashtag);
         }
     });
     $("#spoiler").css({ display: "block" });
 }
 
 $(".my-form").on("submit", function () {
+    //alert($("#edit-id").val());
+    //alert($("#edit-name").val());
+
     const item = {
-        name: $("#edit-name").val(),
-        isComplete: $("#edit-isComplete").is(":checked"),
-        id: $("#edit-id").val()
+        hashtag_name: $("#edit-name").val(),
+        id_hashtag: $("#edit-id").val()
     };
 
     $.ajax({

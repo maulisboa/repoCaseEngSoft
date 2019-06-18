@@ -32,7 +32,10 @@ namespace caseEngSoftApi
             services.AddDbContext<caseEngSoftContext>(opt =>
     opt.UseInMemoryDatabase("caseEngSoftList"));
 
-            services.AddTwitterWidget(Configuration.GetSection("TwitterOptions"));
+            services.AddDbContext<hashtagContext>(opt =>
+    opt.UseInMemoryDatabase("hashtagList"));
+
+            //services.AddTwitterWidget(Configuration.GetSection("TwitterOptions"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

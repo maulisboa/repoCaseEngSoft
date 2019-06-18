@@ -37,11 +37,10 @@
         <input type="submit" value="Incluir">
     </form>
 
-    <div id="spoiler">
+    <div id="spoiler" style="align-content:center">
         <h3>Alterar</h3>
         <form class="my-form">
             <input type="hidden" id="edit-id">
-            <input type="checkbox" id="edit-isComplete">
             <input type="text" id="edit-name">
             <input type="submit" value="Salvar">
             <a onclick="closeInput()" aria-label="Fechar">&#10006;</a>
@@ -50,14 +49,14 @@
 
     <p id="counter"></p>
 
-    <table>
+    <table align="center" width="80%">
         <tr>
-            <th>Is Complete</th>
-            <th>Name</th>
+            <th>ID</th>
+            <th>Hashtag</th>
             <th></th>
             <th></th>
         </tr>
-        <tbody id="caseEngSofts"></tbody>
+        <tbody id="hashtags"></tbody>
     </table>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"

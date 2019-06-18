@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using caseEngSoftApi.Models;
+using caseEngSoftApi.Database;
+using System;
 
 namespace caseEngSoftApi.Controllers
 {
@@ -21,8 +23,14 @@ namespace caseEngSoftApi.Controllers
             {
                 // Create a new caseEngSoftItem if collection is empty,
                 // which means you can't delete all caseEngSoftItems.
-                _context.caseEngSoftItems.Add(new caseEngSoftItem { Name = "Item1" });
+                _context.caseEngSoftItems.Add(new caseEngSoftItem { Name = "hashtagName" });
                 _context.SaveChanges();
+
+                try
+                {
+                    int id_log = new t_log().Incluir("caseEngSoftController", "_context.caseEngSoftItems.Count() == 0", "INFO");
+                }
+                catch (Exception ex) { throw ex; }
             }
         }
 
@@ -30,6 +38,12 @@ namespace caseEngSoftApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<caseEngSoftItem>>> GetcaseEngSoftItems()
         {
+            try
+            {
+                int id_log = new t_log().Incluir("[HttpGet]", "GetcaseEngSoftItems()", "INFO");
+            }
+            catch (Exception ex) { throw ex; }
+
             return await _context.caseEngSoftItems.ToListAsync();
         }
 
@@ -44,6 +58,12 @@ namespace caseEngSoftApi.Controllers
                 return NotFound();
             }
 
+            try
+            {
+                int id_log = new t_log().Incluir("[HttpGet(\"{id}\")]", "GetcaseEngSoftItem(long " + id.ToString() + ")", "INFO");
+            }
+            catch (Exception ex) { throw ex; }
+
             return caseEngSoftItem;
         }
 
@@ -53,6 +73,12 @@ namespace caseEngSoftApi.Controllers
         {
             _context.caseEngSoftItems.Add(item);
             await _context.SaveChangesAsync();
+
+            try
+            {
+                int id_log = new t_log().Incluir("[HttpPost]", "PostcaseEngSoftItem(caseEngSoftItem " + item.ToString() + ")", "INFO");
+            }
+            catch (Exception ex) { throw ex; }
 
             return CreatedAtAction(nameof(GetcaseEngSoftItem), new { id = item.Id }, item);
         }
@@ -68,6 +94,12 @@ namespace caseEngSoftApi.Controllers
 
             _context.Entry(item).State = EntityState.Modified;
             await _context.SaveChangesAsync();
+
+            try
+            {
+                int id_log = new t_log().Incluir("[HttpPut(\"{ id}\")]", "PutcaseEngSoftItem(long " + id.ToString() + ", caseEngSoftItem " + item.ToString() + ")", "INFO");
+            }
+            catch (Exception ex) { throw ex; }
 
             return NoContent();
         }
@@ -85,6 +117,13 @@ namespace caseEngSoftApi.Controllers
 
             _context.caseEngSoftItems.Remove(caseEngSoftItem);
             await _context.SaveChangesAsync();
+
+
+            try
+            {
+                int id_log = new t_log().Incluir("[HttpDelete(\"{ id}\")]", "DeletecaseEngSoftItem(long " + id.ToString() + ")", "INFO");
+            }
+            catch (Exception ex) { throw ex; }
 
             return NoContent();
         }
